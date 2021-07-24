@@ -1,0 +1,32 @@
+.layout {
+  min-height: 200vh;
+
+  &__bg {
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+    filter: drop-shadow(30px 4px 114px rgba(35, 23, 84, 0.12));
+
+    &_bg1 {
+      width: 477px;
+      height: 400px;
+      top: 0;
+      left: 0;
+    }
+
+    &_bg2 {
+      width: 506px;
+      height: 400px;
+      top: 475px;
+      left: 240px;
+    }
+
+    &_bg3 {
+      width: 800px;
+      height: 600px;
+      bottom: 0;
+      right: 0;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+  }
+}

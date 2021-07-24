@@ -8,6 +8,46 @@ body {
   font-family: 'SF Pro Display';
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  outline: 0;
+  color: #fff;
+}
+
+.btn-icon {
+  background: transparent;
+}
+
+.btn-tag {
+  font-size: 10px;
+  padding: 2px 3px;
+  border-radius: 4px;
+
+  .close-tag {
+    margin-left: 5px;
+  }
+}
+
+.btn-primary {
+  background: #0085ff;
+}
+.btn-secondary {
+  background: #5241bf;
+}
+.btn-success {
+  background: #41bfb0;
+}
+
 // Fonts
 
 @font-face {

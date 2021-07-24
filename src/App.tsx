@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Layout from './components/layouts/Layout';
+import Layout from './components/layouts';
 import MainPage from './pages/MainPage';
 
 const App: React.FC = () => {
