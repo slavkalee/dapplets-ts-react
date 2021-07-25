@@ -1,0 +1,38 @@
+.input-field {
+  margin-bottom: 60px;
+
+  &__label {
+    font-size: 16px;
+    color: #999999;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  &__row {
+    display: flex;
+
+    button {
+      display: block;
+      margin-left: 10px;
+    }
+  }
+
+  &__control {
+    display: block;
+    width: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      rgba(255, 255, 255, 0.8);
+    box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 11px 10px;
+
+    &::placeholder {
+      color: #2a2a2a;
+    }
+  }
+}

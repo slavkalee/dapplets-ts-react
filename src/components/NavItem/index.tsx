@@ -8,10 +8,17 @@ interface Props {
   name: string;
   icon: React.ReactElement;
   path: string;
-  exact?: boolean;
+  collapsed: boolean;
+  onExpand?: () => void;
 }
 
-const NavItem: React.FC<Props> = ({ name, icon, path, exact }) => {
+const NavItem: React.FC<Props> = ({
+  name,
+  icon,
+  path,
+  collapsed,
+  onExpand,
+}) => {
   const location = useLocation();
 
   const active = useMemo(
@@ -23,9 +30,9 @@ const NavItem: React.FC<Props> = ({ name, icon, path, exact }) => {
 
   return (
     <Link to={path}>
-      <div className={navItem}>
+      <div className={navItem} onClick={onExpand}>
         <div className="nav-item__icon">{icon}</div>
-        <div className="nav-item__name">{name}</div>
+        {!collapsed && <div className="nav-item__name">{name}</div>}
       </div>
     </Link>
   );

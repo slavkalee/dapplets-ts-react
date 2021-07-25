@@ -7,6 +7,7 @@
   &__name {
     font-size: 16px;
     margin-left: 25px;
+    white-space: nowrap;
   }
 }
 
@@ -18,7 +19,17 @@
     ),
     rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(30px);
-  border-right: 4px solid #0085ff;
+  position: relative;
+
+  &::after {
+    content: '';
+    height: 100%;
+    width: 4px;
+    background: #0085ff;
+    position: absolute;
+    right: -1px;
+    top: 0px;
+  }
 
   .nav-item__icon {
     svg path {

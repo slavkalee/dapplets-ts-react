@@ -28,6 +28,13 @@ a {
   background: transparent;
 }
 
+.btn-submit {
+  padding: 13px 20px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
 .btn-tag {
   font-size: 10px;
   padding: 2px 3px;
@@ -46,6 +53,11 @@ a {
 }
 .btn-success {
   background: #41bfb0;
+}
+
+input[type='text'] {
+  outline: 0;
+  border: none;
 }
 
 // Fonts

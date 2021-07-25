@@ -11,6 +11,7 @@
   );
   backdrop-filter: blur(15px);
   border-right: 1px solid #fff;
+  transition: 0.3s;
 
   &__header {
     padding: 77px 21px 20px 36px;
@@ -28,9 +29,27 @@
   &__lists,
   &__tags {
     padding: 20px 36px;
+    transition: 2s;
   }
 
-  &__tags {
+  .hide {
+    transition: 2s;
+  }
+}
+
+.sidebar_collapsible {
+  width: 95px;
+
+  .sidebar__header {
+    padding-left: 24px;
+  }
+
+  .sidebar__tags,
+  .sidebar__lists,
+  .logo__text,
+  .hide {
+    opacity: 0;
+    transition: 0.1s;
   }
 }
 
@@ -88,6 +107,8 @@
     font-weight: 900;
     font-size: 16px;
     margin-left: 10px;
+    white-space: nowrap;
+    transition: 2s;
 
     span {
       color: red;
