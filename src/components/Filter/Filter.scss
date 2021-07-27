@@ -1,0 +1,90 @@
+.filter {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #fff;
+
+  &__group {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    &_select {
+      position: relative;
+      display: flex;
+      border-radius: 0.25em;
+
+      &::after {
+        content: '\25BC';
+        position: absolute;
+        color: #bbbbbb;
+        top: 10px;
+        right: 0;
+        padding: 0 1em;
+        background: #fff;
+        cursor: pointer;
+        pointer-events: none;
+        -webkit-transition: 0.25s all ease;
+        -o-transition: 0.25s all ease;
+        transition: 0.25s all ease;
+      }
+    }
+
+    &_lg {
+      width: 60%;
+    }
+
+    &_sm {
+      width: 20%;
+    }
+  }
+
+  &__control {
+    width: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      rgba(255, 255, 255, 0.8);
+    box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+    border-radius: 10px;
+    padding: 11px 36px;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #bbbbbb;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.36);
+    border-radius: 10px;
+
+    border: 0 !important;
+    background: #fff;
+    background-image: none;
+    flex: 1;
+    padding: 11px 10px;
+    color: #2a2a2a;
+    cursor: pointer;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+  }
+}

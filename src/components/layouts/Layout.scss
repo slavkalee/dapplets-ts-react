@@ -1,5 +1,23 @@
 .layout {
-  min-height: 200vh;
+  min-height: 100vh;
+
+  &__content {
+    margin: 90px 350px 20px 389px;
+    padding: 25px 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(185, 251, 255, 0.2) 0%,
+      rgba(227, 220, 255, 0.2) 100%
+    );
+    backdrop-filter: blur(30px);
+    border-radius: 10px;
+    border: 1px solid #fff;
+    min-height: 100vh;
+    transition: 0.3s;
+    &_collapsible {
+      margin-left: 124px;
+    }
+  }
 
   &__bg {
     object-fit: cover;

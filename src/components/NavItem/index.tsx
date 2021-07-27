@@ -32,7 +32,13 @@ const NavItem: React.FC<Props> = ({
     <Link to={path}>
       <div className={navItem} onClick={onExpand}>
         <div className="nav-item__icon">{icon}</div>
-        {!collapsed && <div className="nav-item__name">{name}</div>}
+        <div
+          className={
+            collapsed ? 'nav-item__name nav-item__name_hide' : 'nav-item__name'
+          }
+        >
+          {name}
+        </div>
       </div>
     </Link>
   );

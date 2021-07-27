@@ -1,11 +1,13 @@
-import React from 'react';
-import { useState } from 'react';
-import bg1 from '../../libs/img/11.png';
-import bg2 from '../../libs/img/22.png';
-import bg3 from '../../libs/img/33.png';
+import React, { useEffect, useState } from 'react';
+import api from '../../libs/api/main-api';
+
 import Header from '../Header';
 import RightSide from '../RightSide';
 import Sidebar from '../Sidebar';
+
+import bg1 from '../../libs/img/11.png';
+import bg2 from '../../libs/img/22.png';
+import bg3 from '../../libs/img/33.png';
 
 import './Layout.scss';
 
@@ -14,7 +16,7 @@ interface Props {
 }
 
 const MainLayout: React.FC<Props> = ({ children }) => {
-  const [isCollapsed, setCollapsed] = useState(false);
+  const [isCollapsed, setCollapsed] = useState(true);
 
   const onCollapse = () => {
     setCollapsed(true);
@@ -37,7 +39,15 @@ const MainLayout: React.FC<Props> = ({ children }) => {
       />
       <RightSide />
 
-      <main>{children}</main>
+      <main
+        className={
+          isCollapsed
+            ? 'layout__content layout__content_collapsible'
+            : 'layout__content'
+        }
+      >
+        {children}
+      </main>
     </div>
   );
 };

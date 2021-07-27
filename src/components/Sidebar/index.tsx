@@ -1,15 +1,21 @@
 import React from 'react';
 
+import NavItem from '../NavItem';
+import Tag from '../Tag';
+
 import ArrowLeftIcon from '../icons/ArrowLeftIcon';
-import CloseTagIcon from '../icons/CloseTagIcon';
 import DappletIcon from '../icons/DappletIcon';
 import GridIcon from '../icons/GridIcon';
 import HeartIcon from '../icons/HeartIcon';
 import LogoIcon from '../icons/LogoIcon';
 import TrendingIcon from '../icons/TrendingIcon';
 import UsersIcon from '../icons/UsersIcon';
-import NavItem from '../NavItem';
+
 import './Sidebar.scss';
+import { ITag } from '../../interfaces';
+import { useSelector } from 'react-redux';
+import { getAllTags } from '../../store/selectors/tags';
+import { RootState } from '../../store/reducers';
 
 interface Props {
   collapsed: boolean;
@@ -18,6 +24,8 @@ interface Props {
 }
 
 const Sidebar: React.FC<Props> = ({ collapsed, onCollapse, onExpand }) => {
+  const tags = useSelector<RootState, ITag[]>(getAllTags());
+
   return (
     <div className={collapsed ? 'sidebar sidebar_collapsible' : 'sidebar'}>
       <div className="sidebar__header">
@@ -83,17 +91,12 @@ const Sidebar: React.FC<Props> = ({ collapsed, onCollapse, onExpand }) => {
           </li>
         </ul>
       </div>
-      <div className="sidebar__tags tags">
+      <div className="sidebar__tags">
         <div className="tags__title">My tags</div>
-        <div className="tags__body">
-          <div className="tags__item">
-            <button className="btn btn-tag btn-secondary">
-              Twitter
-              <span className="close-tag">
-                <CloseTagIcon />
-              </span>
-            </button>
-          </div>
+        <div className="tags">
+          {tags.map((tag) => (
+            <Tag name={tag.name} key={tag.id} />
+          ))}
         </div>
       </div>
     </div>

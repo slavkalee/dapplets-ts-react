@@ -1,9 +1,11 @@
 import React from 'react';
+import Dapplets from '../components/Dapplets';
+import api from '../libs/api/main-api';
 
 const MainPage: React.FC = () => {
   return (
     <div>
-      <div></div>
+      <Dapplets getData={api.getDapplets} />
     </div>
   );
 };

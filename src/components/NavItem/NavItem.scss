@@ -8,6 +8,12 @@
     font-size: 16px;
     margin-left: 25px;
     white-space: nowrap;
+    transition: 0.8s;
+
+    &_hide {
+      opacity: 0;
+      transition: 0.3s;
+    }
   }
 }
 

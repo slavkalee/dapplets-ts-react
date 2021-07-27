@@ -35,6 +35,12 @@ a {
   font-size: 12px;
 }
 
+.btn-install {
+  padding: 6px 20px;
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
 .btn-tag {
   font-size: 10px;
   padding: 2px 3px;
@@ -53,6 +59,19 @@ a {
 }
 .btn-success {
   background: #41bfb0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 input[type='text'] {

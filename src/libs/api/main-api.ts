@@ -1,11 +1,18 @@
 import axios from './axios-api';
 
-const getDapplets = () => {
-  return axios.get('/v1/dapplets').then((response) => response.data);
+const getDapplets = (params: any) => {
+  return axios
+    .get('/v1/dapplets', { params })
+    .then((response) => response.data);
 };
 
-const dappletApi = {
+const getAllTags = () => {
+  return axios.get('/v1/tags').then((response) => response.data);
+};
+
+const api = {
   getDapplets,
+  getAllTags,
 };
 
-export default dappletApi;
+export default api;

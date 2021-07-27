@@ -1,11 +1,18 @@
 import React from 'react';
+import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { ITag } from '../../interfaces';
+import { RootState } from '../../store/reducers';
+import { getAllTags } from '../../store/selectors/tags';
 import ArrowRightIcon from '../icons/ArrowRightIcon';
-import CloseTagIcon from '../icons/CloseTagIcon';
 import RedCloseIcon from '../icons/RedCloseIcon';
 import InputField from '../InputField';
+import Tag from '../Tag';
 import './RightSide.scss';
 
 const RightSide: React.FC = () => {
+  const tags = useSelector<RootState, ITag[]>(getAllTags());
+
   return (
     <div className="right-side">
       <div className="hide">
@@ -23,29 +30,19 @@ const RightSide: React.FC = () => {
       <div className="right-side__tags">
         <div className="right-side__tags--row">
           <div className="right-side__tags--title">My Tags</div>
-          <div className="right-side__tags--body">
-            <div className="tags__item">
-              <button className="btn btn-tag btn-secondary">
-                Twitter
-                <span className="close-tag">
-                  <CloseTagIcon />
-                </span>
-              </button>
-            </div>
+          <div className="tags">
+            {tags.map((tag) => (
+              <Tag name={tag.name} key={tag.id} />
+            ))}
           </div>
         </div>
 
         <div className="right-side__tags--row">
           <div className="right-side__tags--title">Community Tags</div>
-          <div className="right-side__tags--body">
-            <div className="tags__item">
-              <button className="btn btn-tag btn-success">
-                Twitter
-                <span className="close-tag">
-                  <CloseTagIcon />
-                </span>
-              </button>
-            </div>
+          <div className="tags">
+            {tags.map((tag) => (
+              <Tag name={tag.name} color="success" key={tag.id} />
+            ))}
           </div>
         </div>
       </div>
@@ -86,4 +83,4 @@ const RightSide: React.FC = () => {
   );
 };
 
-export default RightSide;
+export default memo(RightSide);
