@@ -129,7 +129,9 @@ const Dapplets: React.FC = () => {
         <Loader />
       ) : (
         <>
-          {!loading && !dapplets.length && <span>No results</span>}
+          {!loading && !dapplets.length && (
+            <div className="no--results">No results...</div>
+          )}
           <DragDropContext onDragEnd={handleDragEnd}>
             <Droppable droppableId="droppable" direction="vertical">
               {(droppableProvided: DroppableProvided) => (
