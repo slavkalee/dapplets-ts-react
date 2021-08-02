@@ -4,6 +4,7 @@ import { debounce } from 'lodash';
 
 import './Filter.scss';
 import SearchIcon from '../icons/SearchIcon';
+import { memo } from 'react';
 
 interface Props {
   onSearchChange: (value: string) => void;
@@ -74,4 +75,4 @@ const Filter: React.FC<Props> = ({
   );
 };
 
-export default Filter;
+export default memo(Filter);

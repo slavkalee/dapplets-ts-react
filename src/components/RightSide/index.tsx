@@ -2,7 +2,7 @@ import React from 'react';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { ITag } from '../../interfaces';
-import { RootState } from '../../store/reducers';
+import { RootState } from '../../store';
 import { getAllTags } from '../../store/selectors/tags';
 import ArrowRightIcon from '../icons/ArrowRightIcon';
 import RedCloseIcon from '../icons/RedCloseIcon';
@@ -31,18 +31,17 @@ const RightSide: React.FC = () => {
         <div className="right-side__tags--row">
           <div className="right-side__tags--title">My Tags</div>
           <div className="tags">
-            {tags.map((tag) => (
-              <Tag name={tag.name} key={tag.id} />
-            ))}
+            {tags && tags.map((tag) => <Tag name={tag.name} key={tag.id} />)}
           </div>
         </div>
 
         <div className="right-side__tags--row">
           <div className="right-side__tags--title">Community Tags</div>
           <div className="tags">
-            {tags.map((tag) => (
-              <Tag name={tag.name} color="success" key={tag.id} />
-            ))}
+            {tags &&
+              tags.map((tag) => (
+                <Tag name={tag.name} color="success" key={tag.id} />
+              ))}
           </div>
         </div>
       </div>

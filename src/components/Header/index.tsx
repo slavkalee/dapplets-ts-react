@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getError } from '../../store/selectors/dapplets';
 import CloudIcon from '../icons/CloudIcon';
 import SettingsIcon from '../icons/SettingsIcon';
 import './Header.scss';
@@ -8,6 +10,8 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ collapsed }) => {
+  const error = useSelector(getError());
+
   return (
     <header className={collapsed ? 'header header_collapsible' : 'header'}>
       <div className="header__extension--state extension--state">
@@ -15,7 +19,12 @@ const Header: React.FC<Props> = ({ collapsed }) => {
           <CloudIcon />
         </div>
         <div className="extension--state__text">
-          Extension state: <span>Active</span>
+          Extension state: &nbsp;
+          {error ? (
+            <span className="warning">{error.message}</span>
+          ) : (
+            <span className="success">Active</span>
+          )}
         </div>
       </div>
       <div className="header__settings settings">

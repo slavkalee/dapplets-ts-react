@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../libs/api/main-api';
+import React, { useState } from 'react';
 
 import Header from '../Header';
 import RightSide from '../RightSide';
 import Sidebar from '../Sidebar';
 
-import bg1 from '../../libs/img/11.png';
-import bg2 from '../../libs/img/22.png';
-import bg3 from '../../libs/img/33.png';
+import bg1 from '../../assets/img/11.png';
+import bg2 from '../../assets/img/22.png';
+import bg3 from '../../assets/img/33.png';
 
 import './Layout.scss';
 
@@ -26,6 +25,10 @@ const MainLayout: React.FC<Props> = ({ children }) => {
     setCollapsed(false);
   };
 
+  const onToggle = () => {
+    setCollapsed(!isCollapsed);
+  };
+
   return (
     <div className="layout">
       <img className="layout__bg layout__bg_bg1" src={bg1} alt="bg1" />
@@ -36,6 +39,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
         collapsed={isCollapsed}
         onCollapse={onCollapse}
         onExpand={onExpand}
+        onToggle={onToggle}
       />
       <RightSide />
 

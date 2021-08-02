@@ -1,1 +1,22 @@
+.dapplet-list {
+  margin-top: 20px;
+}
 
+.loading-more {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+
+  &__btn-container {
+    margin-bottom: 10px;
+  }
+}
+
+.progressbar {
+  & > div {
+    @media screen and (max-width: 768px) {
+      width: 300px !important;
+    }
+  }
+}

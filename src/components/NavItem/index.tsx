@@ -10,6 +10,7 @@ interface Props {
   path: string;
   collapsed: boolean;
   onExpand?: () => void;
+  onCollapse?: () => void;
 }
 
 const NavItem: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const NavItem: React.FC<Props> = ({
   path,
   collapsed,
   onExpand,
+  onCollapse,
 }) => {
   const location = useLocation();
 
@@ -29,8 +31,8 @@ const NavItem: React.FC<Props> = ({
   const navItem = active ? 'nav-item nav-item_active' : 'nav-item';
 
   return (
-    <Link to={path}>
-      <div className={navItem} onClick={onExpand}>
+    <Link to={path} onClick={collapsed ? onExpand : onCollapse}>
+      <div className={navItem}>
         <div className="nav-item__icon">{icon}</div>
         <div
           className={

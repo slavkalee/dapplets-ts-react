@@ -1,4 +1,5 @@
 .right-side {
+  animation: fade-in-right 0.5s;
   position: fixed;
   top: 0;
   right: 0;
@@ -12,6 +13,10 @@
   backdrop-filter: blur(30px);
   border-left: 1px solid #fff;
   padding: 93px 20px 0 20px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 
   &__tags {
     border-bottom: 1px solid #fff;

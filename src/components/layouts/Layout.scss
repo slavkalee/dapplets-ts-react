@@ -1,7 +1,7 @@
 .layout {
-  min-height: 100vh;
-
+  // min-height: 100vh;
   &__content {
+    animation: fade-in-top 0.4s;
     margin: 90px 350px 20px 389px;
     padding: 25px 20px;
     background: linear-gradient(
@@ -12,10 +12,29 @@
     backdrop-filter: blur(30px);
     border-radius: 10px;
     border: 1px solid #fff;
-    min-height: 100vh;
+    min-height: calc(100vh - 115px);
     transition: 0.3s;
+
+    @media screen and (max-width: 768px) {
+      margin: 70px 0 0 0;
+      display: none;
+      background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        rgba(255, 255, 255, 0.8);
+      border-radius: 0;
+      border: none;
+    }
+
     &_collapsible {
       margin-left: 124px;
+
+      @media screen and (max-width: 768px) {
+        margin-left: 0;
+        display: block;
+      }
     }
   }
 
@@ -24,6 +43,10 @@
     position: fixed;
     z-index: -1;
     filter: drop-shadow(30px 4px 114px rgba(35, 23, 84, 0.12));
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     &_bg1 {
       width: 477px;

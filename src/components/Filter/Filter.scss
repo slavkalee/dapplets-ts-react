@@ -3,8 +3,20 @@
   padding-bottom: 20px;
   border-bottom: 1px solid #fff;
 
+  @media screen and (max-width: 768px) {
+    display: block;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
   &__group {
     position: relative;
+
+    &:not(:last-child) {
+      @media screen and (max-width: 768px) {
+        margin-bottom: 10px;
+      }
+    }
 
     &:not(:last-child) {
       margin-right: 30px;
@@ -33,10 +45,16 @@
 
     &_lg {
       width: 60%;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
     }
 
     &_sm {
       width: 20%;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
     }
   }
 

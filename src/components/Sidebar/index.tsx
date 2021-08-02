@@ -15,15 +15,22 @@ import './Sidebar.scss';
 import { ITag } from '../../interfaces';
 import { useSelector } from 'react-redux';
 import { getAllTags } from '../../store/selectors/tags';
-import { RootState } from '../../store/reducers';
+import { RootState } from '../../store';
+import MenuIcon from '../icons/MenuIcon';
 
 interface Props {
   collapsed: boolean;
   onCollapse: () => void;
   onExpand: () => void;
+  onToggle: () => void;
 }
 
-const Sidebar: React.FC<Props> = ({ collapsed, onCollapse, onExpand }) => {
+const Sidebar: React.FC<Props> = ({
+  collapsed,
+  onCollapse,
+  onExpand,
+  onToggle,
+}) => {
   const tags = useSelector<RootState, ITag[]>(getAllTags());
 
   return (
@@ -42,6 +49,11 @@ const Sidebar: React.FC<Props> = ({ collapsed, onCollapse, onExpand }) => {
             <ArrowLeftIcon />
           </button>
         </div>
+        <div className="menu">
+          <button className="btn btn-icon" onClick={onToggle}>
+            <MenuIcon />
+          </button>
+        </div>
       </div>
       <nav className="sidebar__nav">
         <NavItem
@@ -50,30 +62,35 @@ const Sidebar: React.FC<Props> = ({ collapsed, onCollapse, onExpand }) => {
           path="/"
           collapsed={collapsed}
           onExpand={onExpand}
+          onCollapse={onCollapse}
         />
         <NavItem
           name="Editor Choice"
           icon={<HeartIcon />}
           path="/editor"
           collapsed={collapsed}
+          onCollapse={onCollapse}
         />
         <NavItem
           name="Essential Dapplets"
           icon={<GridIcon />}
           path="/essential"
           collapsed={collapsed}
+          onCollapse={onCollapse}
         />
         <NavItem
           name="Social Networks"
           icon={<UsersIcon />}
           path="/social"
           collapsed={collapsed}
+          onCollapse={onCollapse}
         />
         <NavItem
           name="Financial Dapplets"
           icon={<TrendingIcon />}
           path="/finance"
           collapsed={collapsed}
+          onCollapse={onCollapse}
         />
       </nav>
 
@@ -94,9 +111,7 @@ const Sidebar: React.FC<Props> = ({ collapsed, onCollapse, onExpand }) => {
       <div className="sidebar__tags">
         <div className="tags__title">My tags</div>
         <div className="tags">
-          {tags.map((tag) => (
-            <Tag name={tag.name} key={tag.id} />
-          ))}
+          {tags && tags.map((tag) => <Tag name={tag.name} key={tag.id} />)}
         </div>
       </div>
     </div>

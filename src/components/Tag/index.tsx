@@ -1,4 +1,5 @@
 import React from 'react';
+import { memo } from 'react';
 import CloseTagIcon from '../icons/CloseTagIcon';
 import './Tag.scss';
 
@@ -20,4 +21,4 @@ const Tag: React.FC<Props> = ({ name, color = 'secondary' }) => {
   );
 };
 
-export default Tag;
+export default memo(Tag);

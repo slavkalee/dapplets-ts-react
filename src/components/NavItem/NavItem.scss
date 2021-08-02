@@ -4,15 +4,19 @@
   align-items: center;
   cursor: pointer;
 
+  @media screen and (max-width: 768px) {
+    justify-content: flex-end;
+  }
+
   &__name {
     font-size: 16px;
     margin-left: 25px;
     white-space: nowrap;
     transition: 0.8s;
+    animation: fade 2s;
 
     &_hide {
-      opacity: 0;
-      transition: 0.3s;
+      display: none;
     }
   }
 }
@@ -35,6 +39,10 @@
     position: absolute;
     right: -1px;
     top: 0px;
+
+    @media screen and (max-width: 768px) {
+      left: -1px;
+    }
   }
 
   .nav-item__icon {

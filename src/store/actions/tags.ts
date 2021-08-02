@@ -1,14 +1,22 @@
 import api from '../../libs/api/main-api';
-import { FETCH_TAGS } from '../actionTypes';
+import {
+  FETCH_TAGS_FAILURE,
+  FETCH_TAGS_START,
+  FETCH_TAGS_SUCCESS,
+} from '../actionTypes';
 
 export function fetchTags() {
-  return function (dispatch: any) {
+  return async function (dispatch: any) {
+    dispatch({ type: FETCH_TAGS_START });
+
     try {
-      api.getAllTags().then((response) => {
-        dispatch({ type: FETCH_TAGS, payload: response.data });
-      });
+      const response = await api.getAllTags();
+
+      if (response.data) {
+        dispatch({ type: FETCH_TAGS_SUCCESS, payload: response.data });
+      }
     } catch (e) {
-      console.log(e);
+      dispatch({ type: FETCH_TAGS_FAILURE, payload: e.response.data });
     }
   };
 }

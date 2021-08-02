@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
+import { dappletReducer } from './dapplets';
 import { tagReducer } from './tags';
 
-export type RootState = ReturnType<typeof rootReducer>;
-
 const rootReducer = combineReducers({
+  dapplets: dappletReducer,
   tags: tagReducer,
 });
 
