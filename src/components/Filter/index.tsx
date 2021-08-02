@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useMemo, memo } from 'react';
 import { ChangeEvent } from 'react';
 import { debounce } from 'lodash';
 
-import './Filter.scss';
 import SearchIcon from '../icons/SearchIcon';
-import { memo } from 'react';
+
+import './Filter.scss';
 
 interface Props {
   onSearchChange: (value: string) => void;
@@ -21,8 +21,11 @@ const Filter: React.FC<Props> = ({
   sortKey,
   sortDirection,
 }) => {
-  const debounced = useCallback(
-    debounce((e) => onSearchChange(e.target.value), 400),
+  const debounced = useMemo(
+    () =>
+      debounce((e: ChangeEvent<HTMLInputElement>) => {
+        onSearchChange(e.target.value);
+      }, 400),
     [onSearchChange]
   );
 

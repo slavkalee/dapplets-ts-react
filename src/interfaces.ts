@@ -48,3 +48,8 @@ export interface IParams {
   filter: any[];
   sort: any[];
 }
+
+export interface IFilterParams {
+  property: string;
+  value: string;
+}

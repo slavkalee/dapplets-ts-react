@@ -46,31 +46,35 @@ const Dapplets: React.FC = () => {
   const totalCount = useSelector(getDappletTotalCount());
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchTags());
-  }, [dispatch]);
+  const params = {
+    limit: DEFAULT_LIMIT,
+    start,
+    filter: [],
+    sort: [{ property: sortKey, direction: sortDirection }],
+  } as IParams;
 
   useEffect(() => {
     dispatch(fetchDapplets(params));
-  }, [searchStr, sortKey, sortDirection]);
+    /* eslint-disable */
+  }, [searchStr, sortKey, sortDirection, dispatch]);
+  /* eslint-disable */
 
   useEffect(() => {
     if (start >= DEFAULT_LIMIT) {
       dispatch(fetchMoreDapplets(params));
     }
-  }, [start]);
+    /* eslint-disable */
+  }, [start, dispatch]);
+  /* eslint-disable */
+
+  useEffect(() => {
+    dispatch(fetchTags());
+  }, [dispatch]);
 
   const progress = useMemo(() => {
     const procent = (dapplets.length / totalCount) * 100;
     return Math.round(procent);
   }, [dapplets.length, totalCount]);
-
-  const params: IParams = {
-    limit: DEFAULT_LIMIT,
-    start,
-    filter: [],
-    sort: [{ property: sortKey, direction: sortDirection }],
-  };
 
   if (searchStr) {
     params.filter.push({ property: 'title', value: searchStr });
